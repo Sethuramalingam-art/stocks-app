@@ -10,6 +10,7 @@ const InputField = ({ name, label, placeholder, type = "text", register, error, 
                 {label}
             </Label>
             <Input
+
                 type={type}
                 id={name}
                 placeholder={placeholder}

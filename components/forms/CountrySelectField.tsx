@@ -41,7 +41,6 @@ const CountrySelect = ({
 
     // Get country options with flags
     const countries = countryList().getData();
-    console.log(countries);
     // Helper function to get flag emoji
     const getFlagEmoji = (countryCode: string) => {
         const codePoints = countryCode

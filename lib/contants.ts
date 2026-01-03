@@ -339,3 +339,5 @@ export const WATCHLIST_TABLE_HEADER = [
 ];
 
 //59:29
+
+//1:45

@@ -5,7 +5,8 @@ import InputField from '@/components/forms/InputField'
 import SelectField from '@/components/forms/SelectField'
 import {Button} from "@/components/ui/button";
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/contants";
-import CountrySelectField from '@/components/forms/SelectField';
+import {CountrySelectField} from '@/components/forms/CountrySelectField';
+import FooterLink from "@/components/forms/FooterLink";
 
 const Page = () => {
     const {
@@ -50,6 +51,8 @@ const Page = () => {
                     error={errors.password}
                     validation={{ required: 'Password is required', minLength: 8 }}
                 />
+                
+                <CountrySelectField name="country" label="Country" control={control} error={errors.country} required/>
                 <SelectField
                 name="investmentGoals"
                 label="Investment Goals"
@@ -84,6 +87,8 @@ const Page = () => {
                 <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
                     {isSubmitting? 'Creating Account' : 'Start Your Investing Journey'}
                 </Button>
+
+                <FooterLink text="Already have an account" linkText="sign in" href="/signIn" />
             </form>
         </>
     )
