@@ -1,0 +1,4 @@
+next app router
+better-auth - for sso
+inngest server - gemini ai - ai models integration and event driven orchestration for workflows and ai models integration like chat bots
+nodemailer - send email
