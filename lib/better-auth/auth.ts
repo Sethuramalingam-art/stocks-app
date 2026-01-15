@@ -27,4 +27,8 @@ export const getAuth = async() => {
         plugins:[nextCookies()]
     })
 
+    return authInstance
+
 }
+
+export const auth = await getAuth();

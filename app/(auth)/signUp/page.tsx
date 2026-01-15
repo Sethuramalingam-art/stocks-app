@@ -1,14 +1,18 @@
 "use client"
 import React from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form';
+import {useRouter} from "next/navigation";
+import { toast } from "sonner"
 import InputField from '@/components/forms/InputField'
 import SelectField from '@/components/forms/SelectField'
 import {Button} from "@/components/ui/button";
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/contants";
 import {CountrySelectField} from '@/components/forms/CountrySelectField';
 import FooterLink from "@/components/forms/FooterLink";
+import {signUpWithEmail} from "@/lib/actions/auth.actions";
 
 const Page = () => {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -27,11 +31,19 @@ const Page = () => {
         mode:'onBlur'
     });
 
-    const onSubmit = async (data: SignInFormData) => {
+    const onSubmit = async (data: SignUpFormData) => {
         try{
-            console.log("handleSubmit", data);
+            //signupwith email server actions
+
+            const result = await signUpWithEmail(data);
+            console.log(result);
+            if (result.success) { router.push('/') }
         }catch(error){
             console.log("handleSubmit", error);
+            toast.error('Sign Up Failed', {
+                description: error instanceof Error ? error.message : 'Failed to create an user'
+
+            });
         }
     }
     return (
