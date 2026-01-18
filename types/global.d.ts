@@ -47,6 +47,12 @@ declare global {
         name: string;
         intro: string;
     };
+
+    type User = {
+        email: string;
+        name: string;
+        id: string;
+    }
 }
 
 export {};

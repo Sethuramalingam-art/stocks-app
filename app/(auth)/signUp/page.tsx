@@ -34,7 +34,7 @@ const Page = () => {
     const onSubmit = async (data: SignUpFormData) => {
         try{
             //signupwith email server actions
-
+            console.log(data);
             const result = await signUpWithEmail(data);
             console.log(result);
             if (result.success) { router.push('/') }
@@ -48,7 +48,7 @@ const Page = () => {
     }
     return (
         <>
-            <h1 className="form-title">Sign Up & Personalize</h1>
+            <h1 className="form-titlei">Sign Up & Personalize</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <InputField name="fullName" label="Full Name" placeholder="John Doe" register={register} error={errors.fullName}
                             validation={{ required: 'Full name is required', minLength:2}} />
